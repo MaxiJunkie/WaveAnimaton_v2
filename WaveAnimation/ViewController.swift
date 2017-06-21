@@ -103,9 +103,9 @@ class ViewController: UIViewController {
             
             UIView.animate(withDuration: 0.29, delay: 0.0, options: UIViewAnimationOptions.beginFromCurrentState, animations:{
           
-                self.animateWith(startPoint: 85, endPoint: 0, view: view)
+                self.animateWith(startPoint: 90, endPoint: 0, view: view)
      
-                self.animateShadowToOpacity(from: 0.5, to: 0.0, duration: 0.85, offsetTo: CGSize(width: 0,height: 0), forView: view)
+                self.animateShadowToOpacity(from: 0.5, to: 0.0, duration: 0.9, offsetTo: CGSize(width: 0,height: 0), forView: view)
                 
                 view.layer.transform  = self.transformWaveAnimation(scaleX: 1.0, scaleY: 1.0, scaleZ: 1.0)
                 
