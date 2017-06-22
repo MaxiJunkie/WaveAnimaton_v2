@@ -94,18 +94,18 @@ class ViewController: UIViewController {
         UIView.animate(withDuration: self.animationDuration, animations: {
          
     
-                self.animateShadowToOpacity(from: 0.0, to: 0.5, duration: self.animationDuration, offsetTo: CGSize(width: 0,height: 10), forView: view)
+            self.animateShadowToOpacity(from: 0.0, to: 0.5, duration: self.animationDuration, offsetTo: CGSize(width: 0,height: 10), forView: view)
             
-                view.layer.transform  = self.transformWaveAnimation(scaleX: 1.1, scaleY: 1.1, scaleZ: 1.1)
+            view.layer.transform  = self.transformWaveAnimation(scaleX: 1.1, scaleY: 1.1, scaleZ: 1.1)
       
             
         }, completion:  { (finish) in
             
-            UIView.animate(withDuration: 0.29, delay: 0.0, options: UIViewAnimationOptions.beginFromCurrentState, animations:{
+            UIView.animate(withDuration: 0.28, delay: 0.0, options: UIViewAnimationOptions.beginFromCurrentState, animations:{
           
-                self.animateWith(startPoint: 90, endPoint: 0, view: view)
+                self.animateWith(startPoint: 88, endPoint: 0, view: view)
      
-                self.animateShadowToOpacity(from: 0.5, to: 0.0, duration: 0.9, offsetTo: CGSize(width: 0,height: 0), forView: view)
+                self.animateShadowToOpacity(from: 0.5, to: 0.0, duration: 0.88, offsetTo: CGSize(width: 0,height: 0), forView: view)
                 
                 view.layer.transform  = self.transformWaveAnimation(scaleX: 1.0, scaleY: 1.0, scaleZ: 1.0)
                 
@@ -139,6 +139,28 @@ class ViewController: UIViewController {
         
     }
     
+    func animateShadowToOpacity2(from: Float, to: Float, duration: TimeInterval, offsetTo: CGSize, forView: UIView){
+        
+        let anim = CABasicAnimation()
+        anim.keyPath = "shadowOpacity"
+        anim.fromValue = from;
+        anim.toValue = to
+        anim.duration = duration
+        forView.layer .add(anim, forKey: "shadowOpacity")
+        forView.layer.shadowOpacity = to
+        
+        
+        let offsetAnimation = CABasicAnimation(keyPath: "shadowOffset")
+        offsetAnimation.toValue = offsetTo
+        offsetAnimation.duration = duration
+        forView.layer .add(offsetAnimation, forKey: "shadowOffset")
+        
+        if offsetTo.width != 0 || offsetTo.height != 0 {
+            forView.layer.shadowOffset = offsetTo
+        }
+        
+    }
+    
     
     func animateWith( startPoint: Int, endPoint: Int, view:BCMeshTransformView )  {
         
@@ -160,6 +182,7 @@ class ViewController: UIViewController {
             })
         }
     }
+  
 }
 
 
