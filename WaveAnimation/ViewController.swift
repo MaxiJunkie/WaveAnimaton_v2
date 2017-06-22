@@ -101,7 +101,7 @@ class ViewController: UIViewController {
             
         }, completion:  { (finish) in
             
-            UIView.animate(withDuration: 0.3, delay: 0.0, options: UIViewAnimationOptions.beginFromCurrentState, animations:{
+            UIView.animate(withDuration: 0.27, delay: 0.0, options: UIViewAnimationOptions.beginFromCurrentState, animations:{
           
                 self.animateWith(startPoint: 88, endPoint: 0, view: view)
      
