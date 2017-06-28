@@ -20,8 +20,10 @@
     CGPoint np = CGPointMake(point.x/boundsSize.width, point.y/boundsSize.height);
     
     [transform mapVerticesUsingBlock:^BCMeshVertex(BCMeshVertex vertex, NSUInteger vertexIndex) {
- 
-         vertex.to.z =  0.3+ sin (-0.305*cos(0.0954*pow((pow(pow(vertex.to.y+1.15-3*np.y,2), 0.8)-2.4), 4)));
+
+        
+        vertex.to.z =  0.8 - 0.6* pow(atan(pow((vertex.to.y+10*np.y), 10)),0.637);
+        
 
         return vertex;
     }];

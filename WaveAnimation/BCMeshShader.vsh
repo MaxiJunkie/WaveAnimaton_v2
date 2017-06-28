@@ -19,6 +19,7 @@ void main()
     float diffuseIntensity = abs(dot(worldNormal, lightDirection));
     float diffuse = mix(1.0, diffuseIntensity, diffuseFactor);
     
+    
     shadingVarying = vec4(diffuse, diffuse, diffuse, 1.0);
     texCoordVarying = texCoord;
 

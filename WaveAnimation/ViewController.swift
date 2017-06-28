@@ -17,12 +17,16 @@ class ViewController: UIViewController {
     
     var divider: CGFloat = 500
     var degree: Double = 0
-    let animationDuration: TimeInterval = 0.5
-    let startPoint : Int = 79
+    let animationDuration: TimeInterval = 0.7
+    let startPoint : Int = 55
     
-    let transformView :BCMeshTransformView = BCMeshTransformView.init(frame: CGRect(x: 100, y: 150,width:190,height:240))
-    let container = UIImageView.init(frame: CGRect(x: 30, y: 20,width:130,height:195))
- 
+    let transformView :BCMeshTransformView = BCMeshTransformView.init(frame: CGRect(x: 100, y: 150,width:190,height:270))
+
+    let container = UIImageView.init(frame: CGRect(x: 30, y: 30,width:130,height:195))
+    
+    var dynamicColor = UIColor.gray
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -30,34 +34,37 @@ class ViewController: UIViewController {
         transformView.center = CGPoint(x: view.bounds.midX, y: view.bounds.midY)
         transformView.autoresizingMask = [UIViewAutoresizing.flexibleLeftMargin, UIViewAutoresizing.flexibleRightMargin, UIViewAutoresizing.flexibleTopMargin, UIViewAutoresizing.flexibleBottomMargin]
         
-        let image : UIImage = UIImage(named:"Rectangle 6")!
+        let image : UIImage = UIImage(named:"Rectangle 4")!
         
         container.image = image
     
         container.layer.cornerRadius = 5
-   
         
- 
+     
+        DispatchQueue.global(qos: .background).async {
+            
+        
+             self.dynamicColor = self.areaAverage()
+            
+        }
+        
+        
+     
         transformView.backgroundColor = UIColor.clear
         transformView.layer.cornerRadius = 5
         transformView.layer.masksToBounds = true;
         transformView.contentView.addSubview(container)
-        
-        
-        
-        
+    
         self.view.addSubview(transformView)
         
-        transformView.diffuseLightFactor = 3;
+        transformView.diffuseLightFactor = -1.2;
         
         var perspective = CATransform3DIdentity;
         
-        perspective.m34 = -1.0/500.0;
+        perspective.m34 = -1.0/divider;
         
         transformView.supplementaryTransform = perspective
   
-        self.waveAnimation(view: transformView)
-      
  
         
     }
@@ -90,53 +97,69 @@ class ViewController: UIViewController {
     
     func waveAnimation(view: BCMeshTransformView) {
         
-        self.transformView.meshTransform = BCMutableMeshTransform.curtainMeshTransform(at: CGPoint(x:0,y: 0), boundsSize: self.container.frame.size)
+        self.transformView.meshTransform = BCMutableMeshTransform.curtainMeshTransform(at: CGPoint(x:0,y: 30), boundsSize: self.container.frame.size)
+ 
         
         UIView.animate(withDuration: self.animationDuration, animations: {
-         
+            
+            self.animateShadowToOpacity(from: 0.0, to: 0.8, duration:  self.animationDuration, offsetTo: CGSize(width: 0,height: 8), forView: view)
+            
+            self.animateWith(startPoint: -5, endPoint: 30, view: view)
+            
+        }, completion:  nil)
+
+ 
+     
+    }
+ 
     
-            self.animateShadowToOpacity(from: 0.0, to: 0.5, duration: self.animationDuration, offsetTo: CGSize(width: 0,height: 10), forView: view)
-            
-            view.layer.transform  = self.transformWaveAnimation(scaleX: 1.15, scaleY: 1.15, scaleZ: 1.15)
+    func areaAverage() -> UIColor {
+        
+    
+        var bitmap = [UInt8](repeating: 0, count: 4)
+        
+        let context = CIContext(options: nil)
+        let cgImg = context.createCGImage(CoreImage.CIImage(cgImage: (self.container.image?.cgImage!)!), from: CoreImage.CIImage(cgImage: (self.container.image?.cgImage!)!).extent)
+        
+        let inputImage = CIImage(cgImage: cgImg!)
+        let extent = inputImage.extent
+        let inputExtent = CIVector(x: extent.origin.x, y: extent.origin.y, z: extent.size.width, w: extent.size.height)
+        let filter = CIFilter(name: "CIAreaAverage", withInputParameters: [kCIInputImageKey: inputImage, kCIInputExtentKey: inputExtent])!
+        let outputImage = filter.outputImage!
+        let outputExtent = outputImage.extent
+        assert(outputExtent.size.width == 1 && outputExtent.size.height == 1)
       
-            
-        }, completion:  { (finish) in
-            
-            UIView.animate(withDuration: 0.27, delay: 0.0, options: UIViewAnimationOptions.beginFromCurrentState, animations:{
-          
-                self.animateWith(startPoint: self.startPoint, endPoint: 0, view: view)
-     
-                self.animateShadowToOpacity(from: 0.5, to: 0.0, duration: 0.79, offsetTo: CGSize(width: 0,height: 0), forView: view)
-                
-                view.layer.transform  = self.transformWaveAnimation(scaleX: 1.0, scaleY: 1.0, scaleZ: 1.0)
-                
-            }, completion: nil)
-            
-            
-        })
-     
+        context.render(outputImage, toBitmap: &bitmap, rowBytes: 4, bounds: CGRect(x: 0, y: 0, width: 1, height: 1), format: kCIFormatRGBA8, colorSpace: CGColorSpaceCreateDeviceRGB())
+        
+        let result = UIColor(red: CGFloat(bitmap[0]) / 255.0, green: CGFloat(bitmap[1]) / 255.0, blue: CGFloat(bitmap[2]) / 255.0, alpha: CGFloat(bitmap[3]) / 255.0)
+        return result
     }
     
     
     func animateShadowToOpacity(from: Float, to: Float, duration: TimeInterval, offsetTo: CGSize, forView: UIView){
     
         let anim = CABasicAnimation()
+        anim.autoreverses = true;
         anim.keyPath = "shadowOpacity"
         anim.fromValue = from;
         anim.toValue = to
         anim.duration = duration
         forView.layer .add(anim, forKey: "shadowOpacity")
-        forView.layer.shadowOpacity = to
+      
         
+        DispatchQueue.main.async {
+           forView.layer.shadowColor = self.dynamicColor.cgColor
+            
+        }
         
         let offsetAnimation = CABasicAnimation(keyPath: "shadowOffset")
+        offsetAnimation.autoreverses = true;
         offsetAnimation.toValue = offsetTo
         offsetAnimation.duration = duration
         forView.layer .add(offsetAnimation, forKey: "shadowOffset")
-       
-        if offsetTo.width != 0 || offsetTo.height != 0 {
-            forView.layer.shadowOffset = offsetTo
-        }
+
+        
+        
         
     }
     
@@ -145,21 +168,23 @@ class ViewController: UIViewController {
     func animateWith( startPoint: Int, endPoint: Int, view:BCMeshTransformView )  {
         
    
-        if (startPoint >= endPoint)
+        if (startPoint <= endPoint)
         {
             var sp = startPoint
-            
-            UIView.animate(withDuration: 0.01, animations: {
+     
+            UIView.animate(withDuration: 0.025, animations: {
                 
                 view.meshTransform = BCMutableMeshTransform.curtainMeshTransform(at: CGPoint(x:0,y:sp), boundsSize: self.container.frame.size)
                 
             }, completion: { (finish) in
                 
-                 sp = sp - 1
+                 sp = sp + 1
                 
                  self.animateWith(startPoint: sp, endPoint: endPoint, view: view)
               
             })
+            
+            
         }
     }
   
