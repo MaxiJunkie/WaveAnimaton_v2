@@ -22,8 +22,8 @@
     [transform mapVerticesUsingBlock:^BCMeshVertex(BCMeshVertex vertex, NSUInteger vertexIndex) {
 
         
-        vertex.to.z =  0.8 - 0.6* pow(atan(pow((vertex.to.y+10*np.y), 10)),0.637);
-        
+     //   vertex.to.z =  0.8 - 0.6* pow(atan(pow((vertex.to.y+10*np.y), 10)),0.637);
+        vertex.to.z =  0.4 - 0.3* pow(atan(pow((vertex.to.y+10*np.y), 10)),0.637);
 
         return vertex;
     }];

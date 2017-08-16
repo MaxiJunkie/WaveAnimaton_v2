@@ -1,49 +1,126 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12120" systemVersion="16F73" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
-    <device id="retina4_7" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="oBH-mP-C0x">
+    <device id="retina4_0" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--View Controller-->
-        <scene sceneID="tne-QT-ifu">
+        <!--Collection View Controller-->
+        <scene sceneID="b5o-Ez-aOh">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="WaveAnimation" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="5gy-AF-2H0" customClass="MSCollectionViewController" customModule="WaveAnimation" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
-                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                        <viewControllerLayoutGuide type="top" id="qyY-pN-lEP"/>
+                        <viewControllerLayoutGuide type="bottom" id="gUW-bC-9xu"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                    <view key="view" contentMode="scaleToFill" id="QeX-ZX-CvW">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QfG-MA-dso">
-                                <rect key="frame" x="99.5" y="564" width="176" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="30" id="bsP-io-Bev"/>
-                                    <constraint firstAttribute="width" constant="176" id="fAl-Pj-TPz"/>
-                                </constraints>
-                                <fontDescription key="fontDescription" name="PingFangTC-Light" family="PingFang TC" pointSize="19"/>
-                                <state key="normal" title="Repeat animation"/>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s65-LZ-Czr">
+                                <rect key="frame" x="16" y="20" width="78" height="52"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="back">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
-                                    <action selector="repeatButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="oHG-aV-jrp"/>
+                                    <action selector="dissmisButton:" destination="5gy-AF-2H0" eventType="touchUpInside" id="rYW-dj-wra"/>
+                                </connections>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="uQZwtygM-iI" translatesAutoresizingMaskIntoConstraints="NO" id="KhR-T2-D5Q">
+                                <rect key="frame" x="133" y="41" width="55" height="55"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="55" id="Fgd-KM-iyC"/>
+                                    <constraint firstAttribute="height" constant="55" id="z4L-QR-OwC"/>
+                                </constraints>
+                            </imageView>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHN-PA-68X">
+                                <rect key="frame" x="0.0" y="168" width="320" height="400"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="400" id="EUx-dF-bJV"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="aHN-PA-68X" firstAttribute="centerX" secondItem="QeX-ZX-CvW" secondAttribute="centerX" id="1xi-fP-Jag"/>
+                            <constraint firstAttribute="trailing" secondItem="aHN-PA-68X" secondAttribute="trailing" id="Jba-63-EDa"/>
+                            <constraint firstItem="KhR-T2-D5Q" firstAttribute="centerX" secondItem="QeX-ZX-CvW" secondAttribute="centerX" id="SaL-Mi-85u"/>
+                            <constraint firstItem="KhR-T2-D5Q" firstAttribute="top" secondItem="qyY-pN-lEP" secondAttribute="bottom" constant="21" id="Zhs-wS-2GY"/>
+                            <constraint firstItem="gUW-bC-9xu" firstAttribute="top" secondItem="aHN-PA-68X" secondAttribute="bottom" id="Zvg-nU-N1Q"/>
+                            <constraint firstItem="aHN-PA-68X" firstAttribute="leading" secondItem="QeX-ZX-CvW" secondAttribute="leading" id="rDK-Ab-Fk9"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="profileImage" destination="KhR-T2-D5Q" id="EXN-Yc-iJx"/>
+                        <outlet property="scrollView" destination="aHN-PA-68X" id="7fi-9A-lfH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ARx-OL-NLG" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="971.25" y="43.309859154929576"/>
+        </scene>
+        <!--First View Controller-->
+        <scene sceneID="put-sa-U25">
+            <objects>
+                <viewController id="oBH-mP-C0x" customClass="FirstViewController" customModule="WaveAnimation" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="IgI-gJ-uOk"/>
+                        <viewControllerLayoutGuide type="bottom" id="CFy-Nb-01F"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="snw-Mb-VRx">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="bg" translatesAutoresizingMaskIntoConstraints="NO" id="YqO-Zy-hp4">
+                                <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Валериан и город тысячи планет" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fH9-Oi-1Cq">
+                                <rect key="frame" x="34" y="356" width="252" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Semibold" family="PingFang TC" pointSize="15"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="10-го АВГУСТА 2017" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zyM-a6-Cad">
+                                <rect key="frame" x="79" y="381" width="163" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Light" family="PingFang TC" pointSize="10"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bgu-EN-h0G">
+                                <rect key="frame" x="16" y="435" width="288" height="34"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="0.19078327183255789" green="0.3700784565174457" blue="0.8637373096446701" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <fontDescription key="fontDescription" name="PingFangTC-Light" family="PingFang TC" pointSize="15"/>
+                                <state key="normal" title="посмотрю">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <segue destination="5gy-AF-2H0" kind="show" id="ZeK-9u-Ohh"/>
                                 </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="QfG-MA-dso" secondAttribute="bottom" constant="73" id="2Cg-Od-c2r"/>
-                            <constraint firstItem="QfG-MA-dso" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="9KW-nh-V7e"/>
-                        </constraints>
                     </view>
+                    <connections>
+                        <outlet property="button" destination="bgu-EN-h0G" id="rb2-Ye-jJZ"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hdb-vE-OKI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="38.23088455772114"/>
+            <point key="canvasLocation" x="-178" y="87"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bg" width="320" height="568"/>
+        <image name="uQZwtygM-iI" width="846" height="921"/>
+    </resources>
 </document>

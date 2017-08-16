@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		F50526AE1F43347300789210 /* TransitionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F50526AD1F43347300789210 /* TransitionManager.swift */; };
 		F51712DE1EF58FE40035E42D /* BCMeshBuffer.m in Sources */ = {isa = PBXBuildFile; fileRef = F51712CB1EF58FE40035E42D /* BCMeshBuffer.m */; };
 		F51712DF1EF58FE40035E42D /* BCMeshContentView.m in Sources */ = {isa = PBXBuildFile; fileRef = F51712CD1EF58FE40035E42D /* BCMeshContentView.m */; };
 		F51712E01EF58FE40035E42D /* BCMeshShader.fsh in Resources */ = {isa = PBXBuildFile; fileRef = F51712CE1EF58FE40035E42D /* BCMeshShader.fsh */; };
@@ -19,14 +20,18 @@
 		F51712E71EF58FE40035E42D /* BCMeshTransformView.m in Sources */ = {isa = PBXBuildFile; fileRef = F51712DB1EF58FE40035E42D /* BCMeshTransformView.m */; };
 		F51712E81EF58FE40035E42D /* BCMutableMeshTransform+Convenience.m in Sources */ = {isa = PBXBuildFile; fileRef = F51712DD1EF58FE40035E42D /* BCMutableMeshTransform+Convenience.m */; };
 		F51712ED1EF599460035E42D /* BCMeshTransform+DemoTransforms.m in Sources */ = {isa = PBXBuildFile; fileRef = F51712EC1EF599460035E42D /* BCMeshTransform+DemoTransforms.m */; };
+		F53EB2ED1F3DFC6600A3855F /* HMSegmentedControl.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53EB2EC1F3DFC6600A3855F /* HMSegmentedControl.swift */; };
+		F53EB2EF1F3F544400A3855F /* MSItems.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53EB2EE1F3F544400A3855F /* MSItems.swift */; };
+		F53EB2F11F408AA700A3855F /* FirstViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F53EB2F01F408AA700A3855F /* FirstViewController.swift */; };
 		F5B95BB21EF0279800C19C53 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B95BB11EF0279800C19C53 /* AppDelegate.swift */; };
-		F5B95BB41EF0279800C19C53 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5B95BB31EF0279800C19C53 /* ViewController.swift */; };
 		F5B95BB71EF0279800C19C53 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5B95BB51EF0279800C19C53 /* Main.storyboard */; };
 		F5B95BB91EF0279800C19C53 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = F5B95BB81EF0279800C19C53 /* Assets.xcassets */; };
 		F5B95BBC1EF0279800C19C53 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F5B95BBA1EF0279800C19C53 /* LaunchScreen.storyboard */; };
+		F5C27B471F091938001C6D88 /* MSCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F5C27B461F091937001C6D88 /* MSCollectionViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		F50526AD1F43347300789210 /* TransitionManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TransitionManager.swift; sourceTree = "<group>"; };
 		F51712C91EF58FE30035E42D /* WaveAnimation-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "WaveAnimation-Bridging-Header.h"; sourceTree = "<group>"; };
 		F51712CA1EF58FE40035E42D /* BCMeshBuffer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BCMeshBuffer.h; sourceTree = "<group>"; };
 		F51712CB1EF58FE40035E42D /* BCMeshBuffer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BCMeshBuffer.m; sourceTree = "<group>"; };
@@ -50,13 +55,16 @@
 		F51712EA1EF593050035E42D /* BCMeshTransform.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BCMeshTransform.h; sourceTree = "<group>"; };
 		F51712EB1EF599460035E42D /* BCMeshTransform+DemoTransforms.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "BCMeshTransform+DemoTransforms.h"; sourceTree = "<group>"; };
 		F51712EC1EF599460035E42D /* BCMeshTransform+DemoTransforms.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "BCMeshTransform+DemoTransforms.m"; sourceTree = "<group>"; };
+		F53EB2EC1F3DFC6600A3855F /* HMSegmentedControl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HMSegmentedControl.swift; sourceTree = "<group>"; };
+		F53EB2EE1F3F544400A3855F /* MSItems.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSItems.swift; sourceTree = "<group>"; };
+		F53EB2F01F408AA700A3855F /* FirstViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FirstViewController.swift; sourceTree = "<group>"; };
 		F5B95BAE1EF0279800C19C53 /* WaveAnimation.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WaveAnimation.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F5B95BB11EF0279800C19C53 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		F5B95BB31EF0279800C19C53 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		F5B95BB61EF0279800C19C53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		F5B95BB81EF0279800C19C53 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		F5B95BBB1EF0279800C19C53 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		F5B95BBD1EF0279800C19C53 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F5C27B461F091937001C6D88 /* MSCollectionViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MSCollectionViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -99,6 +107,15 @@
 			name = BCMeshTransformView;
 			sourceTree = "<group>";
 		};
+		F53EB2EB1F3DFC1B00A3855F /* HMSegmentedControl */ = {
+			isa = PBXGroup;
+			children = (
+				F53EB2EC1F3DFC6600A3855F /* HMSegmentedControl.swift */,
+				F53EB2EE1F3F544400A3855F /* MSItems.swift */,
+			);
+			name = HMSegmentedControl;
+			sourceTree = "<group>";
+		};
 		F5B95BA51EF0279800C19C53 = {
 			isa = PBXGroup;
 			children = (
@@ -118,9 +135,12 @@
 		F5B95BB01EF0279800C19C53 /* WaveAnimation */ = {
 			isa = PBXGroup;
 			children = (
+				F53EB2EB1F3DFC1B00A3855F /* HMSegmentedControl */,
 				F51712E91EF58FF90035E42D /* BCMeshTransformView */,
 				F5B95BB11EF0279800C19C53 /* AppDelegate.swift */,
-				F5B95BB31EF0279800C19C53 /* ViewController.swift */,
+				F50526AD1F43347300789210 /* TransitionManager.swift */,
+				F53EB2F01F408AA700A3855F /* FirstViewController.swift */,
+				F5C27B461F091937001C6D88 /* MSCollectionViewController.swift */,
 				F5B95BB51EF0279800C19C53 /* Main.storyboard */,
 				F5B95BB81EF0279800C19C53 /* Assets.xcassets */,
 				F5B95BBA1EF0279800C19C53 /* LaunchScreen.storyboard */,
@@ -207,17 +227,21 @@
 			buildActionMask = 2147483647;
 			files = (
 				F51712E51EF58FE40035E42D /* BCMeshTransform+Interpolation.m in Sources */,
+				F5C27B471F091938001C6D88 /* MSCollectionViewController.swift in Sources */,
 				F51712ED1EF599460035E42D /* BCMeshTransform+DemoTransforms.m in Sources */,
 				F51712E41EF58FE40035E42D /* BCMeshTransform.mm in Sources */,
 				F51712E71EF58FE40035E42D /* BCMeshTransformView.m in Sources */,
-				F5B95BB41EF0279800C19C53 /* ViewController.swift in Sources */,
+				F50526AE1F43347300789210 /* TransitionManager.swift in Sources */,
+				F53EB2EF1F3F544400A3855F /* MSItems.swift in Sources */,
 				F51712DE1EF58FE40035E42D /* BCMeshBuffer.m in Sources */,
 				F51712E11EF58FE40035E42D /* BCMeshShader.m in Sources */,
 				F51712E61EF58FE40035E42D /* BCMeshTransformAnimation.m in Sources */,
 				F51712E31EF58FE40035E42D /* BCMeshTexture.m in Sources */,
+				F53EB2F11F408AA700A3855F /* FirstViewController.swift in Sources */,
 				F5B95BB21EF0279800C19C53 /* AppDelegate.swift in Sources */,
 				F51712DF1EF58FE40035E42D /* BCMeshContentView.m in Sources */,
 				F51712E81EF58FE40035E42D /* BCMutableMeshTransform+Convenience.m in Sources */,
+				F53EB2ED1F3DFC6600A3855F /* HMSegmentedControl.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
